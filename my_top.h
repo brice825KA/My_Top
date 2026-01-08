@@ -23,9 +23,17 @@ typedef struct up_time{
     int minutes;
 } up_time_t;
 
+typedef struct process {
+    int tot_proc;
+    int run_proc;
+    int sleep_proc;
+    int stop_proc;
+} process_t;
+
 int my_getloadavg(double loadavg[], int nelem);
 int my_win_ncurse();
 up_time_t uptime(void);
 int count_users(void);
+process_t tasks_run(void);
 
 #endif
