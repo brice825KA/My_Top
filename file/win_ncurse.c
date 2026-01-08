@@ -8,18 +8,20 @@ int my_win_ncurse()
     timeout(1000);
     curs_set(0);
     struct timeval tv;
+    int user_count = 0;
     double load[3];
 
     while (1) {
         i = getch();
+        char time_str[9];
+        user_count = count_users();
         up_time_t up = uptime();
         my_getloadavg(load, 3);
-        char time_str[9];
         clear();
         gettimeofday(&tv, NULL);
         struct tm *tm_info = localtime(&tv.tv_sec);
         strftime(time_str, sizeof(time_str), "%H:%M:%S", tm_info);
-        mvprintw(0, 0, "my_top: %s Load: %.2f %.2f %.2f Uptime: %d days %d hours %d minutes",  time_str, load[0], load[1], load[2], up.days, up.hours, up.minutes);
+        mvprintw(0, 0, "my_top: %s Load: %.2f %.2f %.2f Uptime: %d days %d hours %d minutes Users: %d",  time_str, load[0], load[1], load[2], up.days, up.hours, up.minutes, user_count);
         refresh();
         if (i == 81 || i == 113)
             break;

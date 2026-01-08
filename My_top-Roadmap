@@ -1,7 +1,8 @@
-Ligne du Header 
+Ligne du Header
 	Informations affichées	Fichier source dans /proc
-	
+
 Ligne 1 : Résumé	Heure actuelle, temps d'activité (uptime), nombre d'utilisateurs connectés et charge moyenne (load average) sur 1, 5 et 15 min.	/proc/loadavg et /proc/uptime
+# pour les users nb see /proc/run/utump
 
 Ligne 2 : Tasks	État des processus : total, en cours d'exécution (running), en veille (sleeping), arrêtés ou zombies.	Parcourt les répertoires /proc/[PID]/stat
 
