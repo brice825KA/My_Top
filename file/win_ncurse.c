@@ -1,18 +1,24 @@
-cp #include <ncurses.h>
+#include "../my_top.h"
 
 int my_win_ncurse()
 {
     initscr();
     int i = 0;
-    timeout(3000);
+    struct timeval tv;
+    timeout(1000);
     double load[3];
 
     while (1) {
         i = getch();
         my_getloadavg(load, 3);
+        char time_str[9];
         clear();
-        mvprintw(LINES / 2, COLS / 2 - 10, "Load: %.2f %.2f %.2f",  load[0], load[1], load[2]);
-        refresh();
+        mvprintw(0, 0, "Load: %.2f %.2f %.2f",  load[0], load[1], load[2]);
+        gettimeofday(&tv, NULL);
+        struct tm *tm_info = localtime(&tv.tv_sec);
+        strftime(time_str, sizeof(time_str), "%H:%M:%S", tm_info);
+        mvprintw(1, 0, "Time in sec %ld.%06ld", tv.tv_sec, tv.tv_usec);
+        mvprintw(2, 0, "my_top: %s", time_str);        refresh();
         if (i == 81 || i == 113)
             break;
     }

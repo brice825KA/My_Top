@@ -6,9 +6,6 @@
 */
 
 #include "../my_top.h"
-#include <inttypes.h>
-#include <stdio.h>
-#include <sys/select.h>
 
 int my_getloadavg(double loadavg[], int nelem)
 {

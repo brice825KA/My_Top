@@ -11,7 +11,11 @@
     #include <stdio.h>
     #include <stdlib.h>
     #include <sys/select.h>
+    #include <ncurses.h>
+    #include <sys/time.h>
+    #include <time.h>
 
 int my_getloadavg(double loadavg[], int nelem);
 int my_win_ncurse();
+
 #endif
