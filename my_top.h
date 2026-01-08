@@ -14,6 +14,7 @@
     #include <ncurses.h>
     #include <sys/time.h>
     #include <time.h>
+    #include <curses.h>
 
 int my_getloadavg(double loadavg[], int nelem);
 int my_win_ncurse();

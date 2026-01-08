@@ -4,8 +4,10 @@ int my_win_ncurse()
 {
     initscr();
     int i = 0;
-    struct timeval tv;
+    noecho();
     timeout(1000);
+    curs_set(0);
+    struct timeval tv;
     double load[3];
 
     while (1) {
@@ -17,8 +19,8 @@ int my_win_ncurse()
         gettimeofday(&tv, NULL);
         struct tm *tm_info = localtime(&tv.tv_sec);
         strftime(time_str, sizeof(time_str), "%H:%M:%S", tm_info);
-        mvprintw(1, 0, "Time in sec %ld.%06ld", tv.tv_sec, tv.tv_usec);
-        mvprintw(2, 0, "my_top: %s", time_str);        refresh();
+        mvprintw(1, 0, "my_top: %s", time_str);
+        refresh();
         if (i == 81 || i == 113)
             break;
     }
