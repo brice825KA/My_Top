@@ -16,7 +16,14 @@
     #include <time.h>
     #include <curses.h>
 
+typedef struct up_time{
+    int days;
+    int hours;
+    int minutes;
+} up_time_t;
+
 int my_getloadavg(double loadavg[], int nelem);
 int my_win_ncurse();
+up_time_t uptime(void);
 
 #endif

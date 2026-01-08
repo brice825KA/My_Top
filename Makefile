@@ -8,6 +8,7 @@
 src	=	./file/main.c	\
 		./file/loadavg.c	\
 		./file/win_ncurse.c	\
+		./file/time.c
 
 obj   =		$(src:.c=.o)
 
