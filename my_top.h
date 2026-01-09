@@ -16,6 +16,8 @@
     #include <time.h>
     #include <curses.h>
     #include <utmp.h>
+    #include <sys/types.h>
+    #include <dirent.h>
 
 typedef struct up_time{
     int days;
@@ -24,16 +26,18 @@ typedef struct up_time{
 } up_time_t;
 
 typedef struct process {
+    int pid;
     int tot_proc;
     int run_proc;
     int sleep_proc;
     int stop_proc;
+    int zombie_proc;
 } process_t;
 
 int my_getloadavg(double loadavg[], int nelem);
 int my_win_ncurse();
 up_time_t uptime(void);
 int count_users(void);
-process_t tasks_run(void);
+process_t *task_run(void);
 
 #endif

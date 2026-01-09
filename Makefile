@@ -9,7 +9,8 @@ src	=	./file/main.c	\
 		./file/loadavg.c	\
 		./file/win_ncurse.c	\
 		./file/time.c	\
-		./file/resume_sys.c
+		./file/resume_sys.c		\
+		./file/pros_task.c
 
 obj   =		$(src:.c=.o)
 

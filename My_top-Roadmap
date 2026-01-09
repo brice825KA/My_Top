@@ -5,6 +5,13 @@ Ligne 1 : Résumé	Heure actuelle, temps d'activité (uptime), nombre d'utilisat
 # pour les users nb see /proc/run/utump
 
 Ligne 2 : Tasks	État des processus : total, en cours d'exécution (running), en veille (sleeping), arrêtés ou zombies.	Parcourt les répertoires /proc/[PID]/stat
+#Le fichier /proc/[PID]/stat contient une ligne de données séparées par des espaces. L'état du processus se trouve à la 3ème position (un seul caractère).
+Caractère   Signification dans top
+R	         Running (En cours d'exécution)
+S	         Sleeping (En veille)
+D	         Disk Sleep (En veille sur disque)
+T	         Stopped (Arrêté)
+Z	         Zombie
 
 Ligne 3 : %Cpu(s)	Utilisation du processeur par catégorie : utilisateur (us), système (sy), inactivité (id), attente E/S (wa), etc.	/proc/stat
 
